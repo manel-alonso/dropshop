@@ -7,6 +7,32 @@ body {
   margin: 0;
   background: #0c0c0c;
   font-family: "Oswald";
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.variant {
+  background: linear-gradient( 144deg, rgb(57 159 55) 0%, rgb(61 189 59) 35%, rgb(22 120 21) 100% ) !important;
+}
+
+.selected-nav {
+  position: relative;
+}
+
+.selected-nav::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: white;
+  bottom: 15px;
+  left: 0;
 }
 
 .header {
@@ -15,6 +41,7 @@ body {
   position: absolute;
   width: 100%;
   top: -3%;
+  z-index: 99;
 }
 
 .header ul {
@@ -45,14 +72,79 @@ body {
   left: 0;
   right: 0;
   margin: auto;
+  height: 100vh;
 }
 
-.image {
+.images {
   width: 50%;
-  height: 95vh;
-  background: url("../images/cerberus.png");
+  height: 75vh;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-top: 5vw;
+}
+
+.image1,
+.image2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("../images/hoodie-back.png");
   background-position: center;
   background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 40;
+  margin-left: 12%;
+}
+
+.image2 {
+  background: url("../images/hoodie-front.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 65%;
+  z-index: 35;
+  margin-left: -2%;
+}
+
+.image1b,
+.image2b {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("../images/white-hoodie-back.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 40;
+  margin-left: 12%;
+}
+
+.image2b {
+  background: url("../images/white-hoodie-front.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 65%;
+  z-index: 35;
+  margin-left: -2%;
+}
+
+.left-control {
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  z-index: 50;
+}
+
+.right-control {
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  z-index: 50;
+  transform: scaleX(-1);
 }
 
 .info {
@@ -106,8 +198,8 @@ body {
 }
 
 .product-description {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   color: #919191;
   letter-spacing: 2px;
   text-align: justify;
@@ -125,7 +217,8 @@ body {
   font-size: 14px;
 }
 
-#countdown {
+#countdown,
+#countdown2 {
   font-size: 3vw;
   color: white;
   letter-spacing: 20px;
@@ -143,7 +236,13 @@ body {
   color: #ffffff;
   box-shadow: 1px 2px 9px 0px rgba(42, 42, 42, 0.75);
   margin-top: 30px;
+  margin-bottom: 30px;
 }
+
+.subscribe::placeholder {
+  color: #dfdfdf;
+}
+
 .subscribe:focus {
   outline: none;
 }
@@ -168,10 +267,88 @@ body {
   opacity: 0.6;
 }
 
+.button {
+  height: 50px;
+  background: rgb(221, 190, 76);
+  background: linear-gradient(
+    144deg,
+    rgb(149 131 66) 0%,
+    rgb(219 197 118) 35%,
+    rgb(80 65 9) 100%
+  );
+  border: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#light {
+  display: none;
+}
+
+#dark {
+  display: block;
+}
+
+.switch-buttons {
+  position: absolute;
+  display: flex;
+  width: 60%;
+  left: 0;
+  column-gap: 10vw;
+  justify-content: center;
+  top: 15vh;
+  z-index: 99;
+}
+
+.cerberus-switch,
+.flora-switch {
+  width: 15%;
+  height: 40px;
+  border-radius: 109px;
+  border: 2px solid #ddbe4c;
+  background: #121212;
+  color: #ddbe4c;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.flora-switch {
+  width: 15%;
+  height: 40px;
+  border-radius: 109px;
+  border: 2px solid #77bf6a;
+  background: #fdfdfd;
+  color: #000000;
+  font-weight: bold;
+  letter-spacing: 4px;
+}
+
+.active {
+  box-shadow: 0px 0px 10px -1px white;
+}
+
+#light .info .pre-header span {
+  color: #4aff0f;
+}
+
+#light .info .sub-header span {
+  color: #4aff0f;
+}
+
+#light .product-countdown-warning {
+  color: #4aff0f;
+}
+
 @media only screen and (max-width: 600px) {
   html,
   body {
     max-width: 100%;
+    width: auto;
+    height: auto;
+    overflow: scroll;
     overflow-x: hidden;
   }
 
@@ -179,6 +356,10 @@ body {
   .background {
     position: fixed;
     left: 0;
+  }
+
+  #about .selected-nav::after {
+    bottom: 35px;
   }
 
   .header ul {
@@ -196,17 +377,26 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
-    margin-top: 12vh;
+    margin-top: 15vh;
+    height: auto;
   }
 
-  .image {
+  .images {
     width: 90%;
-    background-size: contain;
     height: 50vh;
   }
 
   .info {
-    width: 85%;
+    width: 85% !important;
+  }
+
+  .product-description {
+    flex-direction: column-reverse;
+    font-size: 16px !important;
+  }
+
+  .product-description img {
+    width: 100% !important;
   }
 
   .info .pre-header span {
@@ -222,9 +412,37 @@ body {
     letter-spacing: 15px;
   }
 
-  #countdown {
+  #countdown,
+  #countdown2 {
     font-size: 13vw;
     color: white;
     letter-spacing: 10px;
+  }
+
+  .switch-buttons {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    left: 0;
+    column-gap: 5vw;
+    justify-content: center;
+    top: 2vh;
+    z-index: 99;
+  }
+
+  .info .title {
+    margin-bottom: 20px;
+  }
+
+  .image2b, .image2 {
+    margin-left: -5%;
+  }
+
+  .cerberus-switch, .flora-switch {
+    width: 40%;
+  }
+
+  .button {
+    margin-bottom: 10vw;
   }
 }

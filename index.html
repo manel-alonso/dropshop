@@ -6,67 +6,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/styles.css" />
     <script src="index.js"></script>
-    <title>Opulent clothing</title>
+    <title>Pluvia clothing | About Us</title>
   </head>
   <body>
-    <div class="background">
-      <video playsinline loop autoplay muted src="images/video.mp4"></video>
-    </div>
-    <div class="blur"></div>
-    <div class="header">
-      <ul>
-        <li>WHO ARE WE</li>
-        <li class="title">STORE TITLE</li>
-        <li>PROCESS</li>
-      </ul>
-    </div>
-    <div class="central">
-      <div class="image"></div>
-      <div class="info">
-        <div class="product-title">
-          <div class="pre-header">
-            <hr />
-            <span>PRESENTING</span>
-            <hr />
-          </div>
-          <div class="title">
-            <span>CERBERUS</span>
-          </div>
-          <div class="sub-header">
-            <hr />
-            <span>50/50 LIMITED EDITION</span>
-            <hr />
-          </div>
+    <div id="dark">
+      <div class="background">
+        <video playsinline loop autoplay muted src="images/video.mp4"></video>
+      </div>
+      <div class="blur"></div>
+      <div class="header">
+        <ul>
+          <li onclick="location.href = 'about.html'">ABOUT US</li>
+          <li class="title">PLUVIA</li>
+          <li>CONTACT</li>
+        </ul>
+      </div>
+      <div class="central">
+        <div class="switch-buttons">
+          <button class="cerberus-switch active">CERBERUS</button>
+          <button onclick="flora()" class="flora-switch">FLORA</button>
         </div>
-        <div class="product-description">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-            corporis facere quibusdam vero, provident sint rerum minima quod non
-            sed? Qui quam tenetur commodi cupiditate. Placeat magni consequatur
-            est fugiat. Lorem ipsum dolor sit amet consectetur, adipisicing
-            elit. Fuga distinctio totam quas, id cupiditate corrupti,
-            accusantium rem eos, velit eius asperiores maxime beatae dolores
-            tenetur veniam architecto? Sapiente, sint harum?
-          </p>
+        <div id="imageroulette" class="images">
+          <img
+            onclick="leftImage()"
+            class="left-control"
+            src="images/arrow.png"
+            alt=""
+          />
+          <div name="image" class="image1"></div>
+          <div name="image" class="image2"></div>
+          <img
+            onclick="rightImage()"
+            class="right-control"
+            src="images/arrow.png"
+            alt=""
+          />
         </div>
+        <div class="info">
+          <div class="product-title">
+            <div class="pre-header">
+              <hr />
+              <span>PRESENTING</span>
+              <hr />
+            </div>
+            <div class="title">
+              <span>CERBERUS</span>
+            </div>
+            <div class="sub-header">
+              <hr />
+              <span>50/50 LIMITED EDITION</span>
+              <hr />
+            </div>
+          </div>
+          <div class="product-description">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+              corporis facere quibusdam vero, provident sint rerum minima quod
+              non sed? Qui quam tenetur commodi cupiditate. Placeat magni
+              consequatur est fugiat. Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Fuga distinctio totam quas, id cupiditate
+              corrupti, accusantium rem eos, velit eius asperiores maxime beatae
+              dolores tenetur veniam architecto? Sapiente, sint harum?
+            </p>
+          </div>
 
-        <hr class="central-divider" />
-        <span class="product-countdown-warning"
-          >This drop will be available for purchase after the countdown
-          ends.</span
-        >
-        <span class="product-countdown-warning"
-          >There will be only 50 hoodies available.</span
-        >
+          <hr class="central-divider" />
+          <span class="product-countdown-warning"
+            >This drop will be available for purchase after the countdown
+            ends.</span
+          >
+          <span class="product-countdown-warning"
+            >There will be only 50 hoodies available.</span
+          >
 
-        <span id="countdown"></span>
-        <hr class="central-divider" style="margin-top: 20px" />
+          <span id="countdown"></span>
+          <hr class="central-divider" style="margin-top: 20px" />
 
-        <span class="product-countdown-warning"
-          >Subscribe with your email and receive a direct purchase link the day
-          it drops.</span
-        >
-        <input class="subscribe" type="email" placeholder="Type your email here..." />
+          <span class="product-countdown-warning"
+            >Subscribe with your email and receive a direct purchase link the
+            day it drops.</span
+          >
+          <form action="https://gmail.us21.list-manage.com/subscribe/post?u=6af38748a723cb3f9a2c87888&amp;id=10f99e7312&amp;f_id=00c3dfe1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <input
+              class="subscribe"
+              type="email"
+              placeholder="Type your email here..."
+              id="mce-EMAIL" required
+              name="EMAIL"
+            />
+            <input class="button" type="submit" value="Get notified" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="light">
+      <div class="background">
+        <video playsinline loop autoplay muted src="images/flora.mp4"></video>
+      </div>
+      <div class="blur"></div>
+      <div class="header">
+        <ul>
+          <li onclick="location.href = 'about.html'">ABOUT US</li>
+          <li class="title">PLUVIA</li>
+          <li>CONTACT</li>
+        </ul>
+      </div>
+      <div class="central">
+        <div class="switch-buttons">
+          <button onclick="cerberus()" class="cerberus-switch">CERBERUS</button>
+          <button class="flora-switch active">FLORA</button>
+        </div>
+        <div id="imageroulette" class="images">
+          <img
+            onclick="leftImage2()"
+            class="left-control"
+            src="images/arrow.png"
+            alt=""
+          />
+          <div name="image2" class="image1b"></div>
+          <div name="image2" class="image2b"></div>
+          <img
+            onclick="rightImage2()"
+            class="right-control"
+            src="images/arrow.png"
+            alt=""
+          />
+        </div>
+        <div class="info">
+          <div class="product-title">
+            <div class="pre-header">
+              <hr />
+              <span>PRESENTING</span>
+              <hr />
+            </div>
+            <div class="title">
+              <span>FLORA</span>
+            </div>
+            <div class="sub-header">
+              <hr />
+              <span>50/50 LIMITED EDITION</span>
+              <hr />
+            </div>
+          </div>
+          <div class="product-description">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+              corporis facere quibusdam vero, provident sint rerum minima quod
+              non sed? Qui quam tenetur commodi cupiditate. Placeat magni
+              consequatur est fugiat. Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Fuga distinctio totam quas, id cupiditate
+              corrupti, accusantium rem eos, velit eius asperiores maxime beatae
+              dolores tenetur veniam architecto? Sapiente, sint harum?
+            </p>
+          </div>
+
+          <hr class="central-divider" />
+          <span class="product-countdown-warning"
+            >This drop will be available for purchase after the countdown
+            ends.</span
+          >
+          <span class="product-countdown-warning"
+            >There will be only 50 hoodies available.</span
+          >
+
+          <span id="countdown2"></span>
+          <hr class="central-divider" style="margin-top: 20px" />
+
+          <span class="product-countdown-warning"
+            >Subscribe with your email and receive a direct purchase link the
+            day it drops.</span
+          >
+          <form action="https://gmail.us21.list-manage.com/subscribe/post?u=6af38748a723cb3f9a2c87888&amp;id=10f99e7312&amp;f_id=00c3dfe1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <input
+              class="subscribe"
+              type="email"
+              placeholder="Type your email here..."
+              id="mce-EMAIL" required
+              name="EMAIL"
+            />
+            <input class="button variant" type="submit" value="Get notified" />
+          </form>
+        </div>
       </div>
     </div>
   </body>
